@@ -1,0 +1,95 @@
+# ── MARK LV — what never belongs in the repository ──────────────────────────
+# Everything listed here is created by the app on first run. A fresh clone with
+# none of it present boots straight to the setup screen, which is the intended
+# first experience — so nothing here needs to be committed, and some of it must
+# never be.
+#
+# SYNTAX WARNING: .gitignore has no inline comments. A "#" only starts a comment
+# when it is the first character of a line; written after a pattern it is read as
+# part of that pattern, and the rule silently stops matching everything. The
+# original version of this file did exactly that to config/api_keys.json,
+# config/certs/, config/whatsapp_web/ and **/token*.json — four secret rules that
+# protected nothing. Keep every explanation on its own line.
+
+# ── Secrets. Committing any of these publishes them. ──────────────────────────
+
+# Your Gemini API key, plus per-plugin credentials.
+config/api_keys.json
+
+# Live API-key lists per provider (gemini, grok, openrouter, ollama_cloud,
+# tavily), maintained by the settings screen.
+config/providers.json
+
+# The dashboard's TLS private key and certificate.
+config/certs/
+
+# A LINKED WhatsApp session — committing it hands somebody your WhatsApp
+# account, not just a key.
+config/whatsapp_web/
+
+# Google OAuth tokens (Gmail / Calendar / Contacts plugins) and client secrets.
+**/token*.json
+**/client_secret*.json
+*credentials*.json
+
+# The Spotify MCP server's live OAuth grant (clientSecret + access/refresh
+# tokens). spotify-config.example.json is the committed template.
+**/spotify-config.json
+.env
+.env.*
+
+# ── Personal data the assistant accumulates about you ─────────────────────────
+memory/long_term.json
+memory/*.db
+
+# Skills you taught JARVIS.
+memory/skills.json
+
+# Agent task history and their results.
+memory/agent_tasks.json
+
+# Text extracted from your private documents.
+memory/document_rag.json
+
+# A file the assistant downloaded — not project source.
+telegram_download.png
+
+# ── Generated caches and code — rebuilt on demand, large ──────────────────────
+
+# System-wide file index (tens of MB, rebuilt at startup).
+memory/file_index.json
+
+# Skill Forge–generated feature code.
+features/
+
+# ── Python and Node build noise ───────────────────────────────────────────────
+__pycache__/
+node_modules/
+*.py[cod]
+*$py.class
+*.so
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ── Virtual environments ──────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+
+# ── Editors and operating systems ─────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ── Runtime output ────────────────────────────────────────────────────────────
+*.log
+*.pid
+logs/
+downloads/
+screenshots/

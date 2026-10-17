@@ -1,0 +1,18 @@
+{
+  "servers": [
+    {
+      "name": "echo",
+      "command": "venv\\Scripts\\python.exe",
+      "args": ["mcp_servers/echo_server.py"]
+    },
+    {
+      "name": "rea",
+      "command": "cmd.exe",
+      "args": ["/d", "/c", "npx", "-y", "rea-agents@6.5.0", "mcp"],
+      "env": {
+        "GHIDRA_INSTALL_DIR": "C:\\Users\\Mukul\\tools\\ghidra_12.1.4_PUBLIC",
+        "JAVA_HOME": "C:\\Program Files\\Eclipse Adoptium\\jdk-21.0.12.101-hotspot"
+      }
+    }
+  ]
+}
